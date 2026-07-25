@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Makoundji Francis Diakoundila — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0e14;
+    --bg-alt:#10141d;
+    --surface:#171c27;
+    --surface-2:#1d2331;
+    --line:#252c3b;
+    --text:#e7eaf1;
+    --text-dim:#8d96ab;
+    --accent:#4fd1a5;
+    --accent-warm:#ffb454;
+    --mono:'JetBrains Mono', monospace;
+    --sans:'Inter', sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  /* background grid texture */
+  .grid-bg{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:48px 48px;
+    opacity:0.25;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+  }
+
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:880px; margin:0 auto; padding:0 28px; position:relative; z-index:1;}
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(11,14,20,0.85);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; padding-top:16px; padding-bottom:16px;}
+  .brand{font-family:var(--mono); font-weight:700; font-size:14px; letter-spacing:0.5px; color:var(--text);}
+  .brand .dot{color:var(--accent);}
+  .navlinks{display:flex; gap:28px; font-family:var(--mono); font-size:12.5px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.8px;}
+  .navlinks a:hover{color:var(--accent);}
+  @media (max-width:640px){ .navlinks{display:none;} }
+
+  /* HERO */
+  header.hero{
+    position:relative;
+    padding:96px 0 72px;
+    overflow:hidden;
+  }
+  .status-line{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--mono); font-size:12px; color:var(--accent);
+    background:rgba(79,209,165,0.08);
+    border:1px solid rgba(79,209,165,0.3);
+    padding:6px 12px; border-radius:20px;
+    margin-bottom:28px;
+  }
+  .pulse-dot{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 0 rgba(79,209,165,0.6);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(79,209,165,0.55);}
+    70%{box-shadow:0 0 0 8px rgba(79,209,165,0);}
+    100%{box-shadow:0 0 0 0 rgba(79,209,165,0);}
+  }
+  h1.name{
+    font-family:var(--mono);
+    font-weight:800;
+    font-size:clamp(32px, 5.4vw, 54px);
+    line-height:1.08;
+    letter-spacing:-0.5px;
+    max-width:820px;
+  }
+  h1.name .last{color:var(--accent);}
+  .role-line{
+    margin-top:18px;
+    font-size:clamp(16px, 2.4vw, 19px);
+    color:var(--text-dim);
+    max-width:640px;
+  }
+  .role-line strong{color:var(--text); font-weight:600;}
+
+  .hero-meta{
+    margin-top:36px;
+    display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .meta-chip{
+    font-family:var(--mono); font-size:12.5px; color:var(--text-dim);
+    border:1px solid var(--line); background:var(--surface);
+    padding:7px 12px; border-radius:6px;
+    display:flex; align-items:center; gap:6px;
+  }
+  .meta-chip .k{color:var(--accent-warm);}
+
+  /* network signature animation */
+  .signal{
+    margin-top:56px;
+    display:flex; align-items:flex-end; gap:5px; height:34px;
+  }
+  .signal span{
+    width:5px; background:var(--line); border-radius:2px;
+    animation:bar 1.6s ease-in-out infinite;
+  }
+  .signal span:nth-child(1){height:35%; animation-delay:0s;}
+  .signal span:nth-child(2){height:60%; animation-delay:.15s;}
+  .signal span:nth-child(3){height:100%; animation-delay:.3s; background:var(--accent);}
+  .signal span:nth-child(4){height:75%; animation-delay:.45s;}
+  .signal span:nth-child(5){height:50%; animation-delay:.6s;}
+  .signal span:nth-child(6){height:85%; animation-delay:.75s; background:var(--accent);}
+  .signal span:nth-child(7){height:40%; animation-delay:.9s;}
+  @keyframes bar{
+    0%,100%{opacity:.4; transform:scaleY(0.85);}
+    50%{opacity:1; transform:scaleY(1);}
+  }
+  .signal-label{font-family:var(--mono); font-size:11px; color:var(--text-dim); margin-top:10px; letter-spacing:0.5px;}
+
+  /* SECTIONS */
+  section{padding:56px 0; border-top:1px solid var(--line); position:relative; z-index:1;}
+  .sec-label{
+    font-family:var(--mono); font-size:12px; color:var(--accent);
+    text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;
+  }
+  .sec-title{
+    font-family:var(--mono); font-weight:700; font-size:24px; margin-bottom:28px; color:var(--text);
+  }
+
+  /* objectif */
+  .objectif p{font-size:16px; color:#c4cadb; max-width:700px;}
+
+  /* skills */
+  .skill-groups{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
+  @media (max-width:640px){.skill-groups{grid-template-columns:1fr;}}
+  .skill-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:20px 22px;
+  }
+  .skill-card h3{
+    font-family:var(--mono); font-size:13px; color:var(--accent-warm); margin-bottom:14px; letter-spacing:0.4px;
+  }
+  .tag-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:var(--mono); font-size:12px; color:var(--text);
+    background:var(--surface-2); border:1px solid var(--line);
+    padding:5px 10px; border-radius:5px;
+  }
+
+  /* experience timeline */
+  .exp-item{
+    display:grid; grid-template-columns:140px 1fr; gap:24px;
+    padding:20px 0; border-top:1px solid var(--line);
+  }
+  .exp-item:first-of-type{border-top:none;}
+  @media (max-width:640px){.exp-item{grid-template-columns:1fr; gap:8px;}}
+  .exp-date{font-family:var(--mono); font-size:12px; color:var(--text-dim); padding-top:2px;}
+  .exp-role{font-weight:700; font-size:16px; margin-bottom:4px; color:var(--text);}
+  .exp-org{font-size:13.5px; color:var(--accent); margin-bottom:10px; font-family:var(--mono);}
+  .exp-list{list-style:none; display:flex; flex-direction:column; gap:6px;}
+  .exp-list li{font-size:14px; color:#b7bdd0; padding-left:16px; position:relative;}
+  .exp-list li::before{content:"›"; position:absolute; left:0; color:var(--accent);}
+
+  /* formation */
+  .form-item{display:flex; gap:16px; padding:12px 0;}
+  .form-year{font-family:var(--mono); font-size:12.5px; color:var(--accent-warm); min-width:90px;}
+  .form-text{font-size:14.5px; color:#c4cadb;}
+
+  /* complementaires grid */
+  .comp-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  @media (max-width:640px){.comp-grid{grid-template-columns:1fr;}}
+  .comp-item{
+    border:1px solid var(--line); background:var(--surface); border-radius:8px; padding:14px 16px;
+    font-size:13.5px; color:#c4cadb;
+  }
+  .comp-item .yr{font-family:var(--mono); font-size:11px; color:var(--accent); display:block; margin-bottom:4px;}
+
+  /* langues + qualites */
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:40px;}
+  @media (max-width:640px){.two-col{grid-template-columns:1fr; gap:28px;}}
+  .lang-bar{margin-bottom:16px;}
+  .lang-top{display:flex; justify-content:space-between; font-size:13.5px; margin-bottom:6px;}
+  .lang-top .lvl{color:var(--text-dim); font-family:var(--mono); font-size:11.5px;}
+  .bar-track{height:6px; background:var(--surface-2); border-radius:3px; overflow:hidden;}
+  .bar-fill{height:100%; background:var(--accent); border-radius:3px;}
+
+  .qual-list{list-style:none; display:flex; flex-direction:column; gap:10px;}
+  .qual-list li{font-size:14px; color:#c4cadb; display:flex; align-items:center; gap:10px;}
+  .qual-list li .bullet{width:6px; height:6px; border-radius:50%; background:var(--accent-warm); flex-shrink:0;}
+
+  /* contact / footer */
+  footer{
+    padding:64px 0 48px; border-top:1px solid var(--line); text-align:center; position:relative; z-index:1;
+  }
+  .contact-title{font-family:var(--mono); font-weight:700; font-size:22px; margin-bottom:10px;}
+  .contact-sub{color:var(--text-dim); font-size:14.5px; margin-bottom:28px;}
+  .contact-btns{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono); font-size:13px; padding:12px 22px; border-radius:8px;
+    border:1px solid var(--line); color:var(--text); transition:all .2s ease;
+  }
+  .btn.primary{background:var(--accent); color:#0b0e14; border-color:var(--accent); font-weight:600;}
+  .btn:hover{border-color:var(--accent); color:var(--accent);}
+  .btn.primary:hover{background:#5fe0b4; color:#0b0e14;}
+  .foot-note{margin-top:40px; font-size:11.5px; color:#555f74; font-family:var(--mono);}
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">MFD<span class="dot">.</span>tchad</div>
+    <div class="navlinks">
+      <a href="#objectif">Objectif</a>
+      <a href="#competences">Compétences</a>
+      <a href="#experience">Expérience</a>
+      <a href="#formation">Formation</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="status-line"><span class="pulse-dot"></span> Disponible — N'Djamena, Tchad</div>
+    <h1 class="name">Makoundji Francis<br><span class="last">Diakoundila</span></h1>
+    <p class="role-line">
+      Étudiant en informatique, orienté <strong>administration réseaux, systèmes &amp; sécurité</strong>
+      et en développement de compétences en <strong>développement web full stack</strong>.
+      Basé à N'Djamena, curieux et rigoureux, avec une expérience de terrain en environnement hospitalier.
+    </p>
+    <div class="hero-meta">
+      <div class="meta-chip"><span class="k">tel</span> +235 66 24 28 11</div>
+      <div class="meta-chip"><span class="k">mail</span> makoundji.1.flis@gmail.com</div>
+      <div class="meta-chip"><span class="k">loc</span> N'Djamena, Tchad</div>
+      <div class="meta-chip"><span class="k">lang</span> FR · EN · Arabe local</div>
+    </div>
+    <div class="signal">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="signal-label">// connecté — réseaux &amp; systèmes · code &amp; interfaces</div>
+  </div>
+</header>
+
+<section id="objectif">
+  <div class="wrap">
+    <div class="sec-label">01 — Profil</div>
+    <div class="sec-title">Objectif professionnel</div>
+    <div class="objectif">
+      <p>
+        Licencié en informatique, je souhaite me spécialiser en administration des réseaux, systèmes
+        et sécurité, tout en développant mes compétences en <strong style="color:var(--text)">développement
+        web full stack</strong>. Animé par un fort intérêt pour la gestion et la protection des
+        infrastructures informatiques, je vise à construire une expertise solide dans la configuration,
+        la sécurisation et l'optimisation des systèmes — tout en étant capable de concevoir et développer
+        des applications web complètes, du front-end au back-end. Cette double orientation me permet
+        d'aborder les problématiques informatiques aussi bien du côté infrastructure que du côté logiciel.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="competences">
+  <div class="wrap">
+    <div class="sec-label">02 — Savoir-faire</div>
+    <div class="sec-title">Compétences techniques</div>
+    <div class="skill-groups">
+      <div class="skill-card">
+        <h3>RÉSEAUX &amp; SYSTÈMES</h3>
+        <div class="tag-row">
+          <span class="tag">Maintenance informatique</span>
+          <span class="tag">Diagnostic réseau</span>
+          <span class="tag">Windows 10 / 11</span>
+          <span class="tag">VMware</span>
+          <span class="tag">Gestion de parc</span>
+          <span class="tag">Data scraping</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>DÉVELOPPEMENT WEB</h3>
+        <div class="tag-row">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Python</span>
+          <span class="tag">C</span>
+          <span class="tag">Bootstrap</span>
+          <span class="tag">Flutter (bases)</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>BUREAUTIQUE</h3>
+        <div class="tag-row">
+          <span class="tag">Word</span>
+          <span class="tag">Excel</span>
+          <span class="tag">PowerPoint</span>
+          <span class="tag">Publisher</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>APTITUDES</h3>
+        <div class="tag-row">
+          <span class="tag">Travail sous pression</span>
+          <span class="tag">Résolution de problèmes</span>
+          <span class="tag">Adaptabilité</span>
+          <span class="tag">Communication</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-label">03 — Terrain</div>
+    <div class="sec-title">Expérience professionnelle</div>
+    <div class="exp-item">
+      <div class="exp-date">Avr — Mai 2026</div>
+      <div>
+        <div class="exp-role">Stage en informatique</div>
+        <div class="exp-org">CHU La Renaissance — Tchad</div>
+        <ul class="exp-list">
+          <li>Maintenance et dépannage des équipements informatiques (ordinateurs, imprimantes, périphériques)</li>
+          <li>Diagnostic et résolution des incidents réseaux dans différents services</li>
+          <li>Installation et configuration de systèmes d'exploitation Windows 10 / 11</li>
+          <li>Gestion et inventaire du parc informatique</li>
+          <li>Assistance technique auprès des services hospitaliers (administration, laboratoire, imagerie, cardiologie)</li>
+          <li>Familiarisation avec les infrastructures réseau et serveurs (VMware, domaine, partage de ressources)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formation">
+  <div class="wrap">
+    <div class="sec-label">04 — Parcours</div>
+    <div class="sec-title">Formation académique</div>
+    <div>
+      <div class="form-item"><div class="form-year">2025–2026</div><div class="form-text">Licence en Informatique — Université de Maroua (Cameroun)</div></div>
+      <div class="form-item"><div class="form-year">2020</div><div class="form-text">Baccalauréat Série D — Lycée Sacré-Cœur, Tchad</div></div>
+      <div class="form-item"><div class="form-year">2017</div><div class="form-text">Brevet d'Études Fondamentales (BEF)</div></div>
+      <div class="form-item"><div class="form-year">2013</div><div class="form-text">Certificat d'Études Primaires (CEP)</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="formations-comp">
+  <div class="wrap">
+    <div class="sec-label">05 — Développement continu</div>
+    <div class="sec-title">Formations complémentaires</div>
+    <div class="comp-grid">
+      <div class="comp-item"><span class="yr">2026</span>Montage de Projet et Suivi-Évaluation</div>
+      <div class="comp-item"><span class="yr">2026</span>Droits Humains et Protection Humanitaire (VBG, protection des personnes vulnérables, gestion de conflits)</div>
+      <div class="comp-item"><span class="yr">2025</span>Data Scraping — Orange Cameroun</div>
+      <div class="comp-item"><span class="yr">2024</span>Maintenance informatique</div>
+      <div class="comp-item"><span class="yr">2023</span>Réamorçage système</div>
+      <div class="comp-item"><span class="yr">2023</span>Informatique bureautique</div>
+    </div>
+  </div>
+</section>
+
+<section id="profil-humain">
+  <div class="wrap">
+    <div class="sec-label">06 — Au-delà du technique</div>
+    <div class="sec-title">Langues &amp; qualités</div>
+    <div class="two-col">
+      <div>
+        <div class="lang-bar">
+          <div class="lang-top"><span>Français</span><span class="lvl">Courant</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+        </div>
+        <div class="lang-bar">
+          <div class="lang-top"><span>Anglais</span><span class="lvl">Débutant</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:35%"></div></div>
+        </div>
+        <div class="lang-bar">
+          <div class="lang-top"><span>Arabe local</span><span class="lvl">Parlé</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:65%"></div></div>
+        </div>
+      </div>
+      <ul class="qual-list">
+        <li><span class="bullet"></span>Sérieux et rigoureux</li>
+        <li><span class="bullet"></span>Curieux et motivé à apprendre</li>
+        <li><span class="bullet"></span>Esprit d'équipe</li>
+        <li><span class="bullet"></span>Autonome et responsable</li>
+        <li><span class="bullet"></span>Sens de l'initiative</li>
+        <li><span class="bullet"></span>Bonne gestion du stress</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-title">Discutons de votre projet</div>
+    <div class="contact-sub">Disponible pour un poste, un stage ou un test technique.</div>
+    <div class="contact-btns">
+      <a class="btn primary" href="mailto:makoundji.1.flis@gmail.com">Envoyer un email</a>
+      <a class="btn" href="tel:+23566242811">+235 66 24 28 11</a>
+    </div>
+    <div class="foot-note">MAKOUNDJI FRANCIS DIAKOUNDILA — N'Djamena, Tchad</div>
+  </div>
+</footer>
+
+</body>
+</html>
