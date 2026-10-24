@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Francis Makoundji — Professionnel IT, N’Djamena</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap">
+<style>
+:root{
+  --bg:#f4f6f8; --surface:#ffffff; --ink:#14283c; --muted:#4f6275; --line:#d5dde5;
+  --blue:#1b4f8a; --gold:#d99a14; --red:#c4382f; --panel:#0f2236; --panel-ink:#cfe3f5;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1a27; --surface:#142335; --ink:#e8eff6; --muted:#9fb3c6; --line:#27394d;
+    --blue:#6fa8e6; --gold:#f0b43a; --red:#ef6a60; --panel:#08121c; --panel-ink:#cfe3f5; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1a27; --surface:#142335; --ink:#e8eff6; --muted:#9fb3c6; --line:#27394d;
+  --blue:#6fa8e6; --gold:#f0b43a; --red:#ef6a60; --panel:#08121c; --panel-ink:#cfe3f5; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.6}
+a{color:var(--blue);text-underline-offset:3px}
+a:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:3px}
+.flag{display:flex;height:6px}
+.flag i{flex:1}.flag i:nth-child(1){background:var(--blue)}.flag i:nth-child(2){background:var(--gold)}.flag i:nth-child(3){background:var(--red)}
+main{max-width:860px;margin:0 auto;padding:0 20px 56px}
+header.hero{padding:56px 0 40px}
+.me{width:132px;height:132px;border-radius:50%;object-fit:cover;object-position:center 20%;border:4px solid var(--gold);margin:0 0 22px;display:block;background:var(--line)}
+h1{font-size:clamp(2.4rem,8vw,4.4rem);line-height:1.02;margin:0 0 16px;font-weight:800;letter-spacing:-.025em}
+.lead{font-size:1.2rem;max-width:34em;color:var(--muted);margin:0 0 28px}
+.panel{background:var(--panel);color:var(--panel-ink);border-radius:10px;padding:18px 20px;font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88rem;line-height:1.75;overflow-x:auto}
+.panel .ok{color:#6fd48a}.panel .dim{color:#7f98b0}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn{display:inline-block;padding:11px 20px;border-radius:8px;font-weight:600;text-decoration:none;border:2px solid var(--ink);color:var(--ink)}
+.btn.main{background:var(--gold);border-color:var(--gold);color:#14283c}
+h2{font-size:1.7rem;margin:0 0 20px;letter-spacing:-.01em}
+section{padding:40px 0;border-top:1px solid var(--line)}
+.about p{max-width:38em;margin:0 0 14px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
+.skills h3{font-size:1.05rem;margin:0 0 8px;color:var(--blue)}
+.skills ul{margin:0;padding-left:18px;color:var(--muted)}
+.proj{border-left:5px solid var(--gold);padding:4px 0 4px 20px;margin-bottom:28px}
+.proj:nth-child(2){border-left-color:var(--blue)}
+.proj h3{margin:0 0 4px;font-size:1.25rem}
+.proj p{margin:0 0 8px;max-width:38em}
+.tags{color:var(--muted);font-size:.92rem}
+.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:2px solid var(--line)}
+.tl li{position:relative;margin-bottom:30px}
+.tl li::before{content:"";position:absolute;left:-30px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
+.tl .when{color:var(--muted);font-size:.92rem}
+.tl h3{margin:2px 0 8px;font-size:1.15rem}
+.tl ul{margin:0;padding-left:18px;color:var(--muted)}
+.tl li li{margin-bottom:3px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px}
+.two ul{margin:0;padding-left:18px;color:var(--muted)}
+.two h3{margin:0 0 8px;font-size:1.05rem;color:var(--blue)}
+.contact a{font-weight:600;font-size:1.1rem}
+.contact p{margin:0 0 8px}
+footer{color:var(--muted);font-size:.85rem;padding-top:24px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="flag" aria-hidden="true"><i></i><i></i><i></i></div>
+<main>
+<header class="hero">
+  <img class="me" src="photo.jpg" width="132" height="132" alt="Portrait de Francis Makoundji">
+  <h1>Francis Makoundji Diakoundila</h1>
+  <p class="lead">Professionnel IT à N’Djamena. Je mets en place et je dépanne des réseaux, des postes et des connexions satellite, et je crée des applications web qui fonctionnent en production.</p>
+  <div class="panel" role="img" aria-label="Résumé de disponibilité">
+    <div><span class="dim">$</span> statut francis</div>
+    <div>lieu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N’Djamena, Tchad <span class="ok">en ligne</span></div>
+    <div>mobilité&nbsp;&nbsp;ouvert à la mobilité géographique</div>
+    <div>domaines&nbsp;&nbsp;réseaux · support · développement web · formation</div>
+    <div>langues&nbsp;&nbsp;&nbsp;français (courant), anglais (bases), arabe local (parlé)</div>
+  </div>
+  <div class="cta">
+    <a class="btn main" href="mailto:makoundji.1.flis@gmail.com">M’écrire</a>
+    <a class="btn" href="#projets">Voir mes projets</a>
+  </div>
+</header>
+
+<section class="about" id="apropos">
+  <h2>À propos</h2>
+  <p>J’ai un niveau Bac+2 en informatique (Université de Maroua, Cameroun). J’ai fondé DDM TECH à N’Djamena, une structure de services IT qui installe des connexions internet par satellite (Starlink) et dépanne les réseaux et le matériel, pour des particuliers comme pour des entreprises.</p>
+  <p>J’ai aussi fait un stage au CHU La Renaissance, où j’ai assuré le support de plusieurs services en priorisant la continuité de service. J’enseigne l’informatique du CE1 à la 4e : je sais expliquer simplement.</p>
+  <p>Je travaille en autonomie, y compris avec peu de moyens, et je suis ouvert aux postes, stages, missions et formations en IT, au Tchad comme à l’étranger.</p>
+</section>
+
+<section id="competences">
+  <h2>Compétences</h2>
+  <div class="skills">
+    <div><h3>Réseaux et connectivité</h3><ul><li>TCP/IP, LAN/WAN</li><li>Configuration de domaine</li><li>Routeur MikroTik</li><li>Installation Starlink</li></ul></div>
+    <div><h3>Systèmes et matériel</h3><ul><li>Windows 10/11 (bon niveau)</li><li>Linux (intermédiaire)</li><li>VMware, partage de ressources</li><li>PC, imprimantes, périphériques</li></ul></div>
+    <div><h3>Développement web</h3><ul><li>HTML, CSS, JavaScript, React</li><li>Python, Django REST Framework</li><li>Firebase, PostgreSQL</li><li>Git/GitHub, Vercel, Render</li></ul></div>
+    <div><h3>Relation et transmission</h3><ul><li>Support à des utilisateurs non techniques</li><li>Devis et suivi d’interventions</li><li>Formation et enseignement</li><li>Word, Excel, PowerPoint, Publisher</li></ul></div>
+  </div>
+</section>
+
+<section id="projets">
+  <h2>Projets</h2>
+  <div class="proj">
+    <h3>NetDoctor</h3>
+    <p>Application web de diagnostic réseau : tests Ping, DNS et HTTP, historique détaillé et export PDF.</p>
+    <p class="tags">React (Vite), Tailwind, Django REST Framework, PostgreSQL, Firebase Auth</p>
+    <a href="https://netdoctor.vercel.app" target="_blank" rel="noopener">Ouvrir NetDoctor</a>
+  </div>
+  <div class="proj">
+    <h3>Site de DDM TECH</h3>
+    <p>Site vitrine de mon entreprise, avec formulaires connectés à une base de données et tableau de bord d’administration sécurisé.</p>
+    <p class="tags">React, Firebase (Auth, Firestore)</p>
+    <a href="https://ddm-tech-hazel.vercel.app" target="_blank" rel="noopener">Ouvrir le site</a>
+  </div>
+  <div class="proj">
+    <h3>Friya Noor</h3>
+    <p>Boutique en ligne de voiles et boubous traditionnels faits à Maroua : panier, commande en ligne et paiement à la livraison, Orange Money ou MTN Mobile Money.</p>
+    <a href="https://friya-noor.vercel.app" target="_blank" rel="noopener">Ouvrir la boutique</a>
+  </div>
+  <div class="proj">
+    <h3>Mon portfolio</h3>
+    <p>Cette page : un portfolio d’une seule page, rapide et lisible sur téléphone, hébergé sur GitHub et déployé sur Vercel.</p>
+    <a href="https://mon-portofolio-gray.vercel.app" target="_blank" rel="noopener">Ouvrir le portfolio</a>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Expérience</h2>
+  <ul class="tl">
+    <li><span class="when">Depuis juillet 2025</span><h3>Fondateur et responsable d’exploitation, DDM TECH</h3>
+      <ul><li>Installation et maintenance de connexions Starlink pour particuliers et entreprises</li><li>Diagnostic et réparation d’incidents matériels et réseau</li><li>Relation client complète : besoin, devis, intervention, suivi</li><li>Formation des utilisateurs, conception du site de l’entreprise</li></ul></li>
+    <li><span class="when">Avril – mai 2026</span><h3>Stagiaire IT, CHU La Renaissance</h3>
+      <ul><li>Maintenance de postes, imprimantes et périphériques en milieu hospitalier</li><li>Résolution d’incidents réseau touchant plusieurs départements</li><li>Installation de Windows 10/11 sur le parc concerné</li><li>Support à l’administration, au laboratoire, à l’imagerie et à la cardiologie</li><li>Tâches serveur et virtualisation (VMware, domaine)</li></ul></li>
+    <li><span class="when">En cours</span><h3>Enseignant en informatique, Complexe Scolaire International Le Rocher</h3>
+      <ul><li>Cours d’informatique du CE1 à la 4e, avec un contenu adapté à chaque niveau</li></ul></li>
+  </ul>
+</section>
+
+<section id="formation">
+  <h2>Formation</h2>
+  <div class="two">
+    <div><h3>Parcours</h3><ul><li>Études supérieures en informatique, niveau Bac+2, Université de Maroua (Cameroun)</li><li>Baccalauréat série D, Lycée Sacré-Cœur (Tchad), 2020</li></ul></div>
+    <div><h3>Certifications et formations</h3><ul><li>Cisco Networking Academy : Endpoint Security (2026) et notions de base sur les réseaux</li><li>Data Scraping, Orange Cameroun (2025)</li><li>Maintenance informatique (2024)</li><li>Bureautique (2023)</li></ul></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Contact</h2>
+  <p><a href="mailto:makoundji.1.flis@gmail.com">makoundji.1.flis@gmail.com</a></p>
+  <p><a href="tel:+23566242811">+235 66 24 28 11</a> · <a href="tel:+23562016518">+235 62 01 65 18</a></p>
+  <p>N’Djamena, Tchad. Références sur demande.</p>
+</section>
+<footer>© 2026 Francis Makoundji Diakoundila</footer>
+</main>
+</body>
+</html>
